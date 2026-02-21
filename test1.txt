@@ -1,1 +1,50 @@
 Сухоруков Александр
+
+
+#include <iostream>
+#include <set>
+#include <map>
+#include <sstream>
+#include <string>
+using namespace std;
+
+void taskSet() {
+    set<int> s = { 5, 2, 8, 2, 3, 5, 1 };
+
+    cout << "Исходное множество: ";
+    for (int x : s)
+    cout << x << " ";
+    cout <<endl;
+
+    int value;
+   cout << "Введите число: ";
+   cin >> value;
+
+    if (s.find(value) != s.end()) {
+        s.erase(value);
+        cout << "Число " << value << " удалено.\n";
+    }
+    else {
+        s.insert(value);
+        cout << "Число " << value << " добавлено.\n";
+    }
+
+    cout << "Обновлённое множество: ";
+    for (int x : s)
+    cout << x << " ";
+    cout << endl;
+
+    cin.ignore();
+    string line;
+    cout << "\nВведите строку: ";
+    getline(cin, line);
+
+    stringstream ss(line);
+    set<string> uniqueWords;
+    string word;
+
+    while (ss >> word)
+        uniqueWords.insert(word);
+
+    cout << "Уникальных слов: " << uniqueWords.size() << std::endl;
+}
